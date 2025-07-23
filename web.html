@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrashTech Point System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #388e3c;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .point-tracker {
+            background: #e7f3fe;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        #map {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TrashTech++ System</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#rewards">Rewards</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#user-interface">User  Interface</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#get-involved">Get Involved</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to the TrashTech System, where you can recycle waste and earn rewards!</p>
+            <div class="point-tracker">
+                <h3>Point Tracker</h3>
+                <div id="points-balance">Points: 0</div>
+                <button onclick="claimPoints()">Claim Points</button>
+            </div>
+            <div class="recent-rewards">
+                <h3>Recent Rewards Claimed</h3>
+                <ul id="rewards-list"></ul>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <h3>Mission</h3>
+            <p>To promote recycling and sustainability in our community.</p>
+            <h3>Vision</h3>
+            <p>A cleaner, greener future through responsible waste management.</p>
+            <h3>Founders/Contributors</h3>
+            <p>Llance Joven, Ronaline Apanapao, and Yda Baja.</p>
+            <h3>Partners</h3>
+            <p>Local stores and businesses supporting our mission.</p>
+        </section>
+
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <h3>Step by Step Guide</h3>
+            <ol>
+                <li>Collect recyclable materials.</li>
+                <li>Drop them off at designated bins.</li>
+                <li>Scan your RFID card to earn points.</li>
+            </ol>
+            <h3>FAQ</h3>
+            <p>Common questions about the recycling process.</p>
+        </section>
+
+        <section id="rewards">
+            <h2>Rewards</h2>
+            <h3>Categories for Rewards</h3>
+            <ul>
+                <li>Gift Cards</li>
+                <li>Discount Coupons</li>
+                <li>Kiss ni Bryan</li>
+            </ul>
+            <h3>Partnered Stores</h3>
+            <p>List of stores where you can redeem rewards.</p>
+            <h3>Featured Offers</h3>
+            <p>Special offers available for reward redemption.</p>
+        </section>
+
+        <section id="location">
+            <h2>Location</h2>
+            <h3>Map for Bins</h3>
+            <div id="map" style="display: flex; justify-content: center; align-items: center;">
+            [Interactive map will be displayed here]
+        </div>
+            <h3>Search & Filter Option</h3>
+            <input type="text" id="search-bins" placeholder="Search for bins...">
+        </section>
+
+        <section id="user-interface">
+            <h2>User Interface</h2>
+            <h3>Point Tracker (Detailed)</h3>
+            <div id="detailed-points"></div>
+            <h3>Activity Log</h3>
+            <div id="activity-log"></div>
+            <h3>Claim History for Rewards</h3>
+            <div id="claim-history"></div>
+            <h3>Settings</h3>
+            <button onclick="openSettings()">Profile Settings</button>
+        </section>
+
+        <section id="community">
+            <h2>Community</h2>
+            <h3>Leaderboard</h3>
+            <div id="leaderboard"></div>
+            <h3>Events</h3>
+            <p>Upcoming community events.</p>
+            <h3>Forum/Community Board</h3>
+            <p>Discuss and share ideas with others.</p>
+        </section>
+
+        <section id="get-involved">
+            <h2>Get Involved</h2>
+            <h3>Business Partnerships</h3>
+            <p>Contact us to become a partner.</p>
+            <h3>Barangay Involvement</h3>
+            <p>How local communities can participate.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>For inquiries, please reach out via email or phone.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 EcoPoints Recycling System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let points = 0;
+        const rewardsList = document.getElementById('rewards-list');
+
+        function claimPoints() {
+            points += 10;
+            document.getElementById('points-balance').innerText = `Points: ${points}`;
+            const newReward = document.createElement('li');
+            newReward.innerText = `Claimed 10 points! Total: ${points}`;
+            rewardsList.appendChild(newReward);
+        }
+
+        function openSettings() {
+            alert("Settings feature is not implemented yet.");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('map').innerHTML = "<p>Interactive map will be displayed here</p>";
+            document.getElementById('points-balance').innerText = `Points: ${points}`;
+        });
+    </script>
+</body>
+</html>
